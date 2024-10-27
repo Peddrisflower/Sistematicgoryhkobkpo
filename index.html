@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação do Sistema Solar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+        }
+        canvas {
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Posições e parâmetros
+        const sun = { x: canvas.width / 2, y: canvas.height / 2, radius: 50, color: "yellow" };
+        const earth = { distance: 200, radius: 20, color: "blue", angle: 0 };
+        const moon = { distance: 40, radius: 10, color: "gray", angle: 0 };
+
+        function drawCircle(x, y, radius, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+
+            // Desenha o Sol
+            drawCircle(sun.x, sun.y, sun.radius, sun.color);
+
+            // Calcula a posição da Terra
+            const earthX = sun.x + earth.distance * Math.cos(earth.angle);
+            const earthY = sun.y + earth.distance * Math.sin(earth.angle);
+
+            // Desenha a Terra
+            drawCircle(earthX, earthY, earth.radius, earth.color);
+
+            // Calcula a posição da Lua
+            const moonX = earthX + moon.distance * Math.cos(moon.angle);
+            const moonY = earthY + moon.distance * Math.sin(moon.angle);
+
+            // Desenha a Lua
+            drawCircle(moonX, moonY, moon.radius, moon.color);
+
+            // Atualiza os ângulos
+            earth.angle += 0.01; // A Terra orbita o Sol
+            moon.angle += 0.05; // A Lua orbita a Terra
+
+            requestAnimationFrame(update); // Solicita a próxima animação
+        }
+
+        update(); // Inicia a animação
+    </script>
+</body>
+</html>
