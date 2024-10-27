@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.universe {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+.orbit-1, .orbit-2, .orbit-3, .orbit-4, .orbit-5, .orbit-6 {
+    position: absolute;
+    border: 1px dashed gray;
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.orbit-1 {
+    width: 150px;
+    height: 150px;
+    top: 200px;
+    left: 200px;
+}
+
+.orbit-2 {
+    width: 250px;
+    height: 250px;
+    top: 150px;
+    left: 150px;
+}
+
+.orbit-3 {
+    width: 350px;
+    height: 350px;
+    top: 100px;
+    left: 100px;
+    animation-duration: 15s;
+}
+
+.orbit-4 {
+    width: 450px;
+    height: 450px;
+    top: 50px;
+    left: 50px;
+    animation-duration: 25s;
+}
+
+.orbit-5 {
+    width: 550px;
+    height: 550px;
+    top: 0;
+    left: 0;
+    animation-duration: 30s;
+}
+
+.orbit-6 {
+    width: 600px;
+    height: 600px;
+    top: -20px;
+    left: -20px;
+    animation-duration: 40s;
+}
+
+.sun {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 50px;
+    left: 50px;
+    box-shadow: 0 0 30px orange;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.mercury {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    top: 0;
+    left: 70px;
+}
+
+.venus {
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    top: 0;
+    left: 110px;
+}
+
+.earth {
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+    top: 0;
+    left: 150px;
+}
+
+.moon {
+    width: 7px;
+    height: 7px;
+    background-color: lightgray;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    border-radius: 50%;
+    animation: moonOrbit 3s linear infinite;
+}
+
+.mars {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    top: 0;
+    left: 220px;
+}
+
+.jupiter {
+    width: 35px;
+    height: 35px;
+    background-color: brown;
+    top: 0;
+    left: 250px;
+}
+
+.saturn {
+    width: 30px;
+    height: 30px;
+    background-color: goldenrod;
+    top: 0;
+    left: 300px;
+}
+
+.ring {
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    border: 2px solid lightyellow;
+    border-radius: 50%;
+    top: 5px;
+    left: -10px;
+    transform: rotate(45deg);
+}
+
+.galaxy-label {
+    position: absolute;
+    color: lightblue;
+    top: -20px;
+    left: 550px;
+    font-size: 14px;
+}
+
+.title {
+    position: absolute;
+    color: lightgreen;
+    bottom: -30px;
+    left: 50px;
+    font-size: 24px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moonOrbit {
+    from {
+        transform: rotate(0deg) translateX(30px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(30px) rotate(-360deg);
+    }
+}
+    
